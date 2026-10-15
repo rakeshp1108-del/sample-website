@@ -4,7 +4,7 @@ on:
     branches: [main]
 env:
     AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
-    AWS_REGION: ${{ secrets.AWS_REGION }}
+    AWS_REGION: Asia Pacific (Sydney) ap-southeast-2
     S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}                           # example: arch-static-h-sample
     CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}   # example: EV90MMUPTYGLH
     
@@ -21,7 +21,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ env.AWS_ROLE_ARN }}
-          aws-region: Asia Pacific (Sydney) ap-southeast-2
+          aws-region: ${{env.AWS_REGION}}
       
       - name: Debug bucket name
         run: |
